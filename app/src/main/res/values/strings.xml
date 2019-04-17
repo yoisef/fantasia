@@ -1,0 +1,135 @@
+<resources>
+
+    <!-- app name -->
+    <string name="app_name">فنتازيا</string>
+    <string name="tagline">عالم ملئ بالقصص الشيقة</string>
+
+    <!-- app ad section -->
+    <string name="app_ad_id">ca-app-pub-1715060510504733~5178162847</string>
+    <string name="banner_ad_unit_id">ca-app-pub-1715060510504733/1773216405</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-1715060510504733/6179365270</string>
+    <!-- end of the ad section -->
+
+
+    <!-- app social site links section -->
+    <string name="facebook_url">https://www.facebook.com/fantasia.world.ar</string>
+    <string name="youtube_url">https://www.youtube.com/channel/fantasia.world.ar</string>
+    <string name="twitter_user_id">https://fantasia.world</string> <!-- find your user id from here: http://gettwitterid.com/  -->
+    <string name="twitter_url">https://fantasia.world</string>
+    <string name="google_plus_url">https://fantasia.world</string>
+
+    <!-- terms and conditions, privacy policy and faq url -->
+    <string name="terms_url">https://fantasia.world</string>
+    <string name="privacy_url">https://fantasia.world</string>
+    <string name="faq_url">https://fantasia.world</string>
+
+    <!-- about developer text  -->
+    <string name="developer_name">فريق مطورى فنتازيا</string>
+    <string name="developer_detail">ننشأ عالم ملئ بالقصص الشيقة</string>
+    <string name="developer_message">إذا كنت تستمتع باستخدام تطبيق فنتازيا ، فهل تمانع في أخذ بعض الوقت لتقييمه بـ 5 نجوم ومشاركته مع أصدقائك ، يستغرق الأمر أقل من دقيقة وشكراً لدعمكم</string>
+
+    <!-- developer page: replace the developer id by yours -->
+    <string name="developer_page">market://dev?id=9082460539100844090</string>
+    <string name="alternate_dev_page">https://play.google.com/store/apps/dev?id=9082460539100844090</string>
+
+
+    <string name="site_menu_home">الرئيسية</string>
+    <string name="site_menu_book">المفضلة</string>
+    <string name="site_menu_copy">نسخ</string>
+    <string name="site_menu_share">مشاركة</string>
+    <string name="site_menu_delete_all">حذف الكل</string>
+    <string name="site_menu_read_article">قراءة القصة</string>
+    <string name="site_menu_stop_reading">التوقف عن القراءة</string>
+    <string name="site_menu_copy_text">نسخ النص</string>
+    <string name="site_menu_share_post">مشاركة القصة</string>
+    <string name="site_menu_download">تحميل الصورة</string>
+    <string name="site_menu_set">تثبيت الصورة</string>
+    <string name="site_menu_new_comment">تعليق جديد</string>
+    <string name="delete_all_fav_item">هل تريد حذف جميع القصص من  المفضلة ؟</string>
+    <string name="delete_fav_item">هل تريد حذف هذه القصة من المفضلة ؟</string>
+    <string name="social">التواصل الإجتماعى</string>
+    <string name="youtube">يوتيوب</string>
+    <string name="facebook">فيسبوك</string>
+    <string name="twitter">تويتر</string>
+    <string name="google_plus">جوجل بلس</string>
+
+
+    <string name="others">أخرى</string>
+    <string name="privacy">سياسة الخصوصية</string>
+    <string name="share">مشاركة</string>
+    <string name="rate">قيم التطبيق</string>
+    <string name="more_app">المزيد من التطبيقات</string>
+    <string name="settings">الإعدادات</string>
+    <string name="about_dev">عن المطورين</string>
+    <string name="exit">خروج</string>
+    <!-- end of the site configuration section-->
+
+    <string name="search">بحث</string>
+
+    <string name="rate_title">قيم تطبيق فنتازيا</string>
+    <string name="rate_message">إذا كنت تستمتع باستخدام تطبيق فنتازيا ، فهل تمانع في أخذ بعض الوقت لتقييمه بـ 5 نجوم ، يستغرق الأمر أقل من دقيقة وشكراً لدعمكم</string>
+    <string name="rate_positive">قيم الآن</string>
+    <string name="rate_remind_later">لاحقاً</string>
+    <string name="rate_never">لا .. شكراً</string>
+    <string name="empty_result">لا يوجد بيانات</string>
+    <string name="connect">اتصال</string>
+    <string name="openDrawer">فتح</string>
+    <string name="closeDrawer">غلق</string>
+    <string name="tapAgain">اضغط مرة اخرى للخروج</string>
+    <string name="permission_not_granted">التصريح لم يتم</string>
+    <string name="load_more">تحميل المزيد .. برجاء الانتظار</string>
+    <string name="default_string">الافتراضي</string>
+    <string name="latest_post">احدث القصص</string>
+    <string name="featured_post">افضل القصص</string>
+    <string name="details_text">البيانات</string>
+    <string name="comment_list">التعليقات</string>
+    <string name="user_name">الاسم</string>
+    <string name="user_email">البريد الالكترونى</string>
+    <string name="user_comment">تعليق</string>
+    <string name="write_comment">اكتب تعليقك</string>
+    <string name="ok">موافق</string>
+    <string name="tts_wait_msg">رجاء الإنتظار قليلا لتحميل القصة</string>
+    <string name="tts_install_msg">رجاء تحميل حزمة اللغة من هنا</string>
+    <string name="cancel">إلغاء</string>
+    <string name="successful_message">تم التععليق بنجاح</string>
+    <string name="error_message">حدث خطأ ما .. حاول مرة أخرى</string>
+
+    <string name="share_text">\nInstall App from:</string>
+    <string name="send_to">إرسال إلى :</string>
+    <string name="copy_to_clipboard">نسخ إلى الحافظة</string>
+    <string name="added_to_bookmark">تم إضافة القصة إلى المفضلة!</string>
+    <string name="removed_from_book">تم حذف القصة من المفضلة!</string>
+    <string name="wallpaper_set">تم تثبيت الصورة</string>
+    <string name="wallpaper_set_failed">خطأ فى تثبيت الصورة</string>
+    <string name="wallpaper_download">تم تحميل الصور</string>
+    <string name="wallpaper_download_failed">خطأ فى تحميل الصور</string>
+    <string name="delete_all_notification">هل تريد حذف جميع الإشعارات ؟</string>
+
+    <string name="close_prompt">هل حقاً تريد الخروج من التطبيق ؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="failed">خطأ</string>
+    <string name="no_internet">لا يوجد اتصال بالانترنت</string>
+
+
+    <string name="matches">التطابق</string>
+    <string name="placeholder">..</string>
+    <string name="notifications">الإشعارات</string>
+    <string name="read_post">قراءة القصة</string>
+    <string name="notification_title">"عنوان الإشعار: "</string>
+    <string name="notification_details">"بيانات الإشعار: "</string>
+
+
+    <string name="pref_notification_title">الإشعارات</string>
+    <string name="pref_notification_summ">تفعيل / الغاء الإشعارات</string>
+    <string name="pref_zoom_title">خاصية الزووم</string>
+    <string name="pref_zoom_summ">تفعيل خاصية الزووم</string>
+    <string name="pref_text_title">حجم الخط</string>
+    <string name="select_size">اختر حجم الخط</string>
+
+    <string name="small_text">صغير</string>
+    <string name="default_text">متوسط</string>
+    <string name="large_text">كبير</string>
+
+
+</resources>

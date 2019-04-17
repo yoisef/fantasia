@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "482200979250",
+    "firebase_url": "https://fantasia-ar.firebaseio.com",
+    "project_id": "fantasia-ar",
+    "storage_bucket": "fantasia-ar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482200979250:android:3d31184c8ec4558e",
+        "android_client_info": {
+          "package_name": "com.app.world.fantasia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482200979250-430qvm331rohdd20go7j07935sdnlg55.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.world.fantasia",
+            "certificate_hash": "f9eb51ba641dd7bf3f83e0d257176b0a7f2209ce"
+          }
+        },
+        {
+          "client_id": "482200979250-8qtmh5e1objqilif3r3cm5dgqr4gi7ns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjlN8Lg9fcX_-8AFiMqQQzIK1j4MoStxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482200979250-8qtmh5e1objqilif3r3cm5dgqr4gi7ns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
