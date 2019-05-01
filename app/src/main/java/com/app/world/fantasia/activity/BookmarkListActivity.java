@@ -23,6 +23,9 @@ import com.app.world.fantasia.models.bookmark.BookmarkModel;
 import com.app.world.fantasia.utility.ActivityUtilities;
 import com.app.world.fantasia.utility.AdsUtilities;
 import com.app.world.fantasia.utility.DialogUtilities;
+import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
+import com.startapp.android.publish.adsCommon.StartAppAd;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.util.ArrayList;
 
@@ -49,6 +52,7 @@ public class BookmarkListActivity extends BaseActivity {
         initView();
         initFunctionality();
         initListener();
+        interstialads();
     }
 
     private void initVar() {
@@ -175,6 +179,7 @@ public class BookmarkListActivity extends BaseActivity {
             updateUI();
         }
         // load full screen ad
+
         AdsUtilities.getInstance(mContext).loadFullScreenAd(mActivity);
     }
 
@@ -189,5 +194,20 @@ public class BookmarkListActivity extends BaseActivity {
                 updateUI();
             }
         }
+    }
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
+    }
+
+    public void interstialads()
+    {
+        StartAppSDK.init(this, "203750050", true);
+        StartAppAd.enableAutoInterstitial();
+        StartAppAd.setAutoInterstitialPreferences(
+                new AutoInterstitialPreferences()
+                        .setSecondsBetweenAds(60)
+        );
     }
 }

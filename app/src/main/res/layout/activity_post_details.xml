@@ -156,6 +156,9 @@
                 android:layout_marginEnd="@dimen/margin_17dp"
                 android:layout_marginStart="@dimen/margin_17dp" />
 
+
+
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
@@ -171,9 +174,15 @@
         app:layout_anchorGravity="bottom|right|end"
         tools:src="@drawable/ic_book" />
 
+    <com.startapp.android.publish.ads.banner.Banner
+        android:id="@+id/startAppBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"/>
     <include
         android:id="@+id/adsView"
         layout="@layout/content_banner_ad" />
+
 
     <include layout="@layout/view_common_loader" />
 

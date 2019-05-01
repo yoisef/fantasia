@@ -28,6 +28,9 @@ import com.app.world.fantasia.utility.ActivityUtilities;
 import com.app.world.fantasia.utility.AdsUtilities;
 import com.app.world.fantasia.utility.AppUtilities;
 import com.app.world.fantasia.utility.RateItDialogFragment;
+import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
+import com.startapp.android.publish.adsCommon.StartAppAd;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +57,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        StartAppSDK.init(this, "203750050", true);
+
+
 
         RateItDialogFragment.show(this, getSupportFragmentManager());
 
@@ -99,6 +106,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         AppUtilities.tapPromptToExit(mActivity);
+        StartAppAd.onBackPressed(this);
     }
 
     private void initVar() {
@@ -201,5 +209,15 @@ public class MainActivity extends BaseActivity {
                 notificationCount.setVisibility(View.INVISIBLE);
             }
         }
+    }
+
+    public void interstialads()
+    {
+        StartAppSDK.init(this, "203750050", true);
+        StartAppAd.enableAutoInterstitial();
+        StartAppAd.setAutoInterstitialPreferences(
+                new AutoInterstitialPreferences()
+                        .setSecondsBetweenAds(60)
+        );
     }
 }

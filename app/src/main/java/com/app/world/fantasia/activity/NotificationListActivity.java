@@ -21,6 +21,7 @@ import com.app.world.fantasia.listeners.ListItemClickListener;
 import com.app.world.fantasia.models.notification.NotificationModel;
 import com.app.world.fantasia.utility.AdsUtilities;
 import com.app.world.fantasia.utility.DialogUtilities;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.util.ArrayList;
 
@@ -156,5 +157,11 @@ public class NotificationListActivity extends BaseActivity {
                 updateUI();
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
 }

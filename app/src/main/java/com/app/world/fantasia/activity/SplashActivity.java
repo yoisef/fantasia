@@ -19,6 +19,9 @@ import android.widget.RelativeLayout;
 import com.app.world.fantasia.R;
 import com.app.world.fantasia.utility.ActivityUtilities;
 import com.app.world.fantasia.utility.AppUtilities;
+import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
+import com.startapp.android.publish.adsCommon.StartAppAd;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.util.Locale;
 
@@ -114,6 +117,15 @@ public class SplashActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         initFunctionality();
+    }
+    public void interstialads()
+    {
+        StartAppSDK.init(this, "203750050", true);
+        StartAppAd.enableAutoInterstitial();
+        StartAppAd.setAutoInterstitialPreferences(
+                new AutoInterstitialPreferences()
+                        .setSecondsBetweenAds(60)
+        );
     }
 }
 

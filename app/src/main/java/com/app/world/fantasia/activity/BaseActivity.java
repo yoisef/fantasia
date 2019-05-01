@@ -20,6 +20,9 @@ import com.app.world.fantasia.utility.ActivityUtilities;
 import com.app.world.fantasia.utility.AdsUtilities;
 import com.app.world.fantasia.utility.AppUtilities;
 import com.app.world.fantasia.utility.DialogUtilities;
+import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
+import com.startapp.android.publish.adsCommon.StartAppAd;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 
 public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DialogUtilities.OnCompleteListener {
@@ -42,6 +45,9 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
 
         // uncomment this line to disable ads from entire application
         //disableAds();
+
+        interstialads();
+
 
     }
 
@@ -187,6 +193,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
         super.onBackPressed();
     }
 
@@ -197,6 +204,16 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 mActivity.finishAffinity();
             }
         }
+    }
+
+    public void interstialads()
+    {
+        StartAppSDK.init(this, "203750050", true);
+        StartAppAd.enableAutoInterstitial();
+        StartAppAd.setAutoInterstitialPreferences(
+                new AutoInterstitialPreferences()
+                        .setSecondsBetweenAds(60)
+        );
     }
 
 }

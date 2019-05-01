@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.app.world.fantasia.R;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 public class AboutDevActivity extends BaseActivity {
     @Override
@@ -18,6 +19,7 @@ public class AboutDevActivity extends BaseActivity {
         initToolbar(true);
         setToolbarTitle(getString(R.string.about_dev));
         enableUpButton();
+        interstialads();
     }
 
 
@@ -29,6 +31,12 @@ public class AboutDevActivity extends BaseActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
 }
 

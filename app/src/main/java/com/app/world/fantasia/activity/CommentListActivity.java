@@ -20,6 +20,9 @@ import com.app.world.fantasia.data.constant.AppConstant;
 import com.app.world.fantasia.models.comment.Comments;
 import com.app.world.fantasia.utility.AdsUtilities;
 import com.app.world.fantasia.utility.CommentDialogUtilities;
+import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
+import com.startapp.android.publish.adsCommon.StartAppAd;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -159,5 +162,21 @@ public class CommentListActivity extends BaseActivity implements CommentDialogUt
         if (isOkPressed) {
             loadComments();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
+    }
+
+    public void interstialads()
+    {
+        StartAppSDK.init(this, "203750050", true);
+        StartAppAd.enableAutoInterstitial();
+        StartAppAd.setAutoInterstitialPreferences(
+                new AutoInterstitialPreferences()
+                        .setSecondsBetweenAds(60)
+        );
     }
 }
