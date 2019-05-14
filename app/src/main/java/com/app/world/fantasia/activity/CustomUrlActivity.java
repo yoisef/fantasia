@@ -15,9 +15,6 @@ import com.app.world.fantasia.utility.FilePickerUtilities;
 import com.app.world.fantasia.utility.PermissionUtilities;
 import com.app.world.fantasia.webengine.WebEngine;
 import com.app.world.fantasia.listeners.WebListener;
-import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
-import com.startapp.android.publish.adsCommon.StartAppAd;
-import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 
 public class CustomUrlActivity extends BaseActivity {
@@ -176,13 +173,5 @@ public class CustomUrlActivity extends BaseActivity {
         }
     }
 
-    public void interstialads()
-    {
-        StartAppSDK.init(this, "203750050", true);
-        StartAppAd.enableAutoInterstitial();
-        StartAppAd.setAutoInterstitialPreferences(
-                new AutoInterstitialPreferences()
-                        .setSecondsBetweenAds(60)
-        );
-    }
+
 }

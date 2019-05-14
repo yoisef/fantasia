@@ -29,6 +29,7 @@ import com.app.world.fantasia.utility.ActivityUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.audience.adverts.FBNativeAdAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -93,7 +94,11 @@ public class PostListFragment extends Fragment {
         mRvPosts.setLayoutManager(mLayoutManager);
 
         mAdapter = new PostAdapter(getActivity(), postList);
-        mRvPosts.setAdapter(mAdapter);
+        FBNativeAdAdapter fbNativeAdAdapter=FBNativeAdAdapter.Builder.with("1572801019522768_1572909549511915",mAdapter)
+                .adItemInterval(4).build()
+
+
+        mRvPosts.setAdapter(fbNativeAdAdapter);
 
 
     }

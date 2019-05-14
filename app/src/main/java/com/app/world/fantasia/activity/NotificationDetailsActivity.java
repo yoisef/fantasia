@@ -14,9 +14,7 @@ import com.app.world.fantasia.R;
 import com.app.world.fantasia.data.constant.AppConstant;
 import com.app.world.fantasia.utility.ActivityUtilities;
 import com.app.world.fantasia.utility.AdsUtilities;
-import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
-import com.startapp.android.publish.adsCommon.StartAppAd;
-import com.startapp.android.publish.adsCommon.StartAppSDK;
+
 
 public class NotificationDetailsActivity extends BaseActivity {
 
@@ -107,7 +105,7 @@ public class NotificationDetailsActivity extends BaseActivity {
         if (mFromPush) {
             Intent intent = new Intent(NotificationDetailsActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            StartAppAd.onBackPressed(this);
+
             startActivity(intent);
             finish();
         } else {
@@ -115,15 +113,7 @@ public class NotificationDetailsActivity extends BaseActivity {
         }
     }
 
-    public void interstialads()
-    {
-        StartAppSDK.init(this, "203750050", true);
-        StartAppAd.enableAutoInterstitial();
-        StartAppAd.setAutoInterstitialPreferences(
-                new AutoInterstitialPreferences()
-                        .setSecondsBetweenAds(60)
-        );
-    }
+
 
 
 }

@@ -37,7 +37,7 @@ import com.app.world.fantasia.utility.AdsUtilities;
 import com.app.world.fantasia.utility.AppUtilities;
 import com.app.world.fantasia.utility.TtsEngine;
 import com.app.world.fantasia.webengine.PostWebEngine;
-import com.startapp.android.publish.adsCommon.StartAppAd;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +84,7 @@ public class PostDetailsActivity extends BaseActivity {
         initView();
         initFunctionality();
         initListener();
-        interstialads();
+
     }
 
     private void initVar() {
@@ -427,7 +427,7 @@ public class PostDetailsActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        StartAppAd.onBackPressed(this);
+
         super.onBackPressed();
     }
 }

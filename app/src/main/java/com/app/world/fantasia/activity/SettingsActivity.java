@@ -5,9 +5,7 @@ import android.preference.PreferenceFragment;
 import android.view.MenuItem;
 
 import com.app.world.fantasia.R;
-import com.startapp.android.publish.adsCommon.AutoInterstitialPreferences;
-import com.startapp.android.publish.adsCommon.StartAppAd;
-import com.startapp.android.publish.adsCommon.StartAppSDK;
+
 
 
 public class SettingsActivity extends BaseActivity {
@@ -17,7 +15,7 @@ public class SettingsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         initView();
-        interstialads();
+
     }
 
     private void initView() {
@@ -54,17 +52,9 @@ public class SettingsActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        StartAppAd.onBackPressed(this);
+
         super.onBackPressed();
     }
 
-    public void interstialads()
-    {
-        StartAppSDK.init(this, "203750050", true);
-        StartAppAd.enableAutoInterstitial();
-        StartAppAd.setAutoInterstitialPreferences(
-                new AutoInterstitialPreferences()
-                        .setSecondsBetweenAds(60)
-        );
-    }
+
 }
