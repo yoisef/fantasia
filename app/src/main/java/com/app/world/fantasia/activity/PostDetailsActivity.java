@@ -9,12 +9,16 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +26,16 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdIconView;
+import com.facebook.ads.AdOptionsView;
+import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.InterstitialAdListener;
+import com.facebook.ads.MediaView;
+import com.facebook.ads.NativeAd;
+import com.facebook.ads.NativeAdLayout;
+import com.facebook.ads.NativeAdListener;
 import com.google.android.gms.ads.AdView;
 import com.app.world.fantasia.R;
 import com.app.world.fantasia.api.ApiUtilities;
@@ -45,6 +59,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.facebook.ads.AudienceNetworkAds.TAG;
 
 public class PostDetailsActivity extends BaseActivity {
     private Activity mActivity;
@@ -75,6 +91,12 @@ public class PostDetailsActivity extends BaseActivity {
 
     private Bitmap bitmap;
     private String imgUrl = null;
+    private InterstitialAd interstitialAd;
+    private final String TAG = MainActivity.class.getSimpleName();
+    private NativeAd nativeAd;
+    private NativeAdLayout nativeAdLayout,nativeAdLayoutt;
+
+    private LinearLayout adView,adVieww;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +107,161 @@ public class PostDetailsActivity extends BaseActivity {
         initFunctionality();
         initListener();
 
+        interstitialAd = new InterstitialAd(this, "1572801019522768_1572824739520396");
+
+        loadNativeAdfb();
+        interstialadFB();
     }
+
+    public void interstialadFB()
+    {
+        interstitialAd.setAdListener(new InterstitialAdListener() {
+            @Override
+            public void onInterstitialDisplayed(Ad ad) {
+                // Interstitial ad displayed callback
+                Log.e(TAG, "Interstitial ad displayed.");
+            }
+
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                // Interstitial dismissed callback
+                Log.e(TAG, "Interstitial ad dismissed.");
+            }
+
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                // Ad error callback
+                Log.e(TAG, "Interstitial ad failed to load: " + adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                // Interstitial ad is loaded and ready to be displayed
+                Log.d(TAG, "Interstitial ad is loaded and ready to be displayed!");
+                // Show the ad
+               // interstitialAd.show();
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+                Log.d(TAG, "Interstitial ad clicked!");
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                // Ad impression logged callback
+                Log.d(TAG, "Interstitial ad impression logged!");
+            }
+        });
+
+        // For auto play video ads, it's recommended to load the ad
+        // at least 30 seconds before it is shown
+        interstitialAd.loadAd();
+    }
+
+    private void loadNativeAdfb() {
+        // Instantiate a NativeAd object.
+        // NOTE: the placement ID will eventually identify this as your App, you can ignore it for
+        // now, while you are testing and replace it later when you have signed up.
+        // While you are using this temporary code you will only get test ads and if you release
+        // your code like this to the Google Play your users will not receive ads (you will get a no fill error).
+        nativeAd = new NativeAd(this, "1572801019522768_1572909549511915");
+
+        nativeAd.setAdListener(new NativeAdListener() {
+            @Override
+            public void onMediaDownloaded(Ad ad) {
+                // Native ad finished downloading all assets
+                Log.e(TAG, "Native ad finished downloading all assets.");
+            }
+
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                // Native ad failed to load
+                Log.e(TAG, "Native ad failed to load: " + adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                // Native ad is loaded and ready to be displayed
+
+                if (nativeAd == null || nativeAd != ad) {
+                    return;
+                }
+                // Inflate Native Ad into Container
+                inflateAd(nativeAd);
+
+                Log.d(TAG, "Native ad is loaded and ready to be displayed!");
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Native ad clicked
+                Log.d(TAG, "Native ad clicked!");
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                // Native ad impression
+                Log.d(TAG, "Native ad impression logged!");
+            }
+        });
+
+        // Request an ad
+        nativeAd.loadAd();
+    }
+
+    private void inflateAd(NativeAd nativeAd) {
+
+        nativeAd.unregisterView();
+
+        // Add the Ad view into the ad container.
+        nativeAdLayout = findViewById(R.id.native_ad_containerpost);
+        LayoutInflater inflater = LayoutInflater.from(PostDetailsActivity.this);
+        // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+        adView = (LinearLayout) inflater.inflate(R.layout.native_ad_layout, nativeAdLayout, false);
+
+        nativeAdLayout.addView(adView);
+
+        // Add the AdOptionsView
+        LinearLayout adChoicesContainer = findViewById(R.id.ad_choices_container);
+        AdOptionsView adOptionsView = new AdOptionsView(PostDetailsActivity.this, nativeAd, nativeAdLayout);
+        adChoicesContainer.removeAllViews();
+        adChoicesContainer.addView(adOptionsView, 0);
+
+        // Create native UI using the ad metadata.
+        AdIconView nativeAdIcon = adView.findViewById(R.id.native_ad_icon);
+        TextView nativeAdTitle = adView.findViewById(R.id.native_ad_title);
+        MediaView nativeAdMedia = adView.findViewById(R.id.native_ad_media);
+        TextView nativeAdSocialContext = adView.findViewById(R.id.native_ad_social_context);
+        TextView nativeAdBody = adView.findViewById(R.id.native_ad_body);
+        TextView sponsoredLabel = adView.findViewById(R.id.native_ad_sponsored_label);
+        Button nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
+
+        // Set the Text.
+        nativeAdTitle.setText(nativeAd.getAdvertiserName());
+        nativeAdBody.setText(nativeAd.getAdBodyText());
+        nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
+        nativeAdCallToAction.setVisibility(nativeAd.hasCallToAction() ? View.VISIBLE : View.INVISIBLE);
+        nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
+        sponsoredLabel.setText(nativeAd.getSponsoredTranslation());
+
+        // Create a list of clickable views
+        List<View> clickableViews = new ArrayList<>();
+        clickableViews.add(nativeAdTitle);
+        clickableViews.add(nativeAdCallToAction);
+
+        // Register the Title and CTA button to listen for clicks.
+        nativeAd.registerViewForInteraction(
+                adView,
+                nativeAdMedia,
+                nativeAdIcon,
+                clickableViews);
+    }
+
+
+
+
 
     private void initVar() {
         mActivity = PostDetailsActivity.this;
@@ -383,6 +559,9 @@ public class PostDetailsActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
         mTtsEngine.releaseEngine();
         mModel = null;
     }
@@ -427,6 +606,8 @@ public class PostDetailsActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+
+       interstitialAd.show();
 
         super.onBackPressed();
     }

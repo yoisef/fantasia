@@ -42,7 +42,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         mContext = mActivity.getApplicationContext();
 
         // uncomment this line to disable ads from entire application
-        //disableAds();
+        disableAds();
 
 
 

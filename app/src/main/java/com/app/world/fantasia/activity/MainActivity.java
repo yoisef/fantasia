@@ -40,6 +40,7 @@ import com.app.world.fantasia.utility.ActivityUtilities;
 import com.app.world.fantasia.utility.AdsUtilities;
 import com.app.world.fantasia.utility.AppUtilities;
 import com.app.world.fantasia.utility.RateItDialogFragment;
+import com.google.android.gms.ads.MobileAds;
 
 
 import java.util.ArrayList;
@@ -74,11 +75,14 @@ public class MainActivity extends BaseActivity {
 
         AudienceNetworkAds.initialize(this);
         AudienceNetworkAds.isInAdsProcess(this);
+        MobileAds.initialize(this, getResources().getString(R.string.app_ad_id));
 
 
 
 
-       AdSettings.addTestDevice("87e33dd3-571b-4c16-8dc7-c4275ed7589d");
+
+        //  AdSettings.addTestDevice("87e33dd3-571b-4c16-8dc7-c4275ed7589d");
+
 
 
 
@@ -89,7 +93,7 @@ public class MainActivity extends BaseActivity {
         initView();
         loadData();
       //  initListener();
-        loadNativeAdfb();
+
 
     }
 

@@ -1,1 +1,1 @@
-include ':app',':audience-network-adapter'
+include ':app'

@@ -148,6 +148,12 @@
                 android:layout_marginTop="@dimen/margin_8dp"
                 android:background="@color/colorAccent21" />
 
+            <com.facebook.ads.NativeAdLayout
+                android:id="@+id/native_ad_containerpost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
             <WebView
                 android:id="@+id/web_view"
                 android:layout_width="match_parent"
@@ -155,6 +161,7 @@
                 android:layout_marginBottom="@dimen/margin_100dp"
                 android:layout_marginEnd="@dimen/margin_17dp"
                 android:layout_marginStart="@dimen/margin_17dp" />
+
 
 
 

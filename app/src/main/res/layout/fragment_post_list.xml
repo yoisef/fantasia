@@ -3,11 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <com.facebook.ads.NativeAdLayout
+        android:id="@+id/native_ad_containerpostfrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -15,10 +25,12 @@
             android:descendantFocusability="blocksDescendants"
             android:focusableInTouchMode="true">
 
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvPosts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:nestedScrollingEnabled="false"
                 tools:targetApi="lollipop" />
 
@@ -32,9 +44,11 @@
                 android:visibility="gone" />
 
         </RelativeLayout>
+    <include layout="@layout/view_common_loader" />
+
+
+</LinearLayout>
 
     </ScrollView>
-
-    <include layout="@layout/view_common_loader" />
 
 </android.support.design.widget.CoordinatorLayout>

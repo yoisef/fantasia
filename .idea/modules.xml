@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/audience-network-adapter/audience-network-adapter.iml" filepath="$PROJECT_DIR$/audience-network-adapter/audience-network-adapter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/fantasia.iml" filepath="$PROJECT_DIR$/.idea/fantasia.iml" />
       <module fileurl="file://$PROJECT_DIR$/fantasia.iml" filepath="$PROJECT_DIR$/fantasia.iml" />
     </modules>
   </component>
